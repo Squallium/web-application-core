@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 
 block content
     .register-box
@@ -26,7 +26,7 @@ block content
                         .checkbox.icheck
                             label
                                 input(type="checkbox")
-                                span &#32;I agree to the terms
+                                span &#32;I agree to the
                                 a(href="#") &#32;terms
                     .col-xs-4
                         button(type="submit").btn.btn-primary.btn-block.btn-flat Register
@@ -41,14 +41,7 @@ block content
                     span Sign up using Google+
                     span Sign up using Google+
 
-            a(href="/login").text-center I already have a membership
+            a(href="/users/login").text-center I already have a membership
 
 
-    script.
-        $(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-            });
-        });
+    include ./include/script-agree
