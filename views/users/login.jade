@@ -1,3 +1,19 @@
 extends ../layout
 
 block content
+    body.hold-transition.login-page
+        .login-box
+            .login-logo
+                a(href="/")
+                    b Web App Core
+            .login-box-body
+                p.login-box-msg Sign in o start your session
+                form(action="/login", method="post")
+                    include ./include/email-pass
+                    .row
+                        .col-xs-8
+                            .checkbox.icheck
+                                label
+                                    input(type="checkbox")
+                                    span Remember Me
+        include ./include/script-agree
