@@ -5,10 +5,32 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
+
+var config = require('./config');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// database setup //
+// the url correspond to the environment we are in
+app.set('dbUrl', config.db[app.settings.env]);
+// we're going to use mongoose to interact with the mongodb
+mongoose.connect(app.get('dbUrl'));
+
+// passport strategies setpu
+require('./config/passport')(passport);
+// required for passport
+app.use(session({ secret: 'ytunolosabes' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
