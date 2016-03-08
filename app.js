@@ -26,7 +26,11 @@ mongoose.connect(app.get('dbUrl'));
 // passport strategies setpu
 require('./config/passport')(passport);
 // required for passport
-app.use(session({ secret: 'ytunolosabes' })); // session secret
+app.use(session({
+    secret: 'ytunolosabes',
+    saveUninitialized: true,
+    resave: true
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
