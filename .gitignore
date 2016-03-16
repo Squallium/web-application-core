@@ -1,3 +1,6 @@
+# Own ignores
+config/auth.js
+
 # IntelliJ Node.js plugin
 bin/
 node_modules/
