@@ -21,7 +21,7 @@ module.exports = {
             if (!error && response.statusCode == 200) {
                 console.log(body) // Show the HTML for the Google homepage.
             }else{
-                console.log("error del demonio");
+                console.log("Error trying to obtain careerProfile.");
             }
         });
     },
