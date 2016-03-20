@@ -1,6 +1,9 @@
 # Own ignores
 config/auth.js
 
+# Typescript
+typings/
+
 # IntelliJ Node.js plugin
 bin/
 node_modules/
