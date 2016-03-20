@@ -3,6 +3,7 @@ config/auth.js
 
 # Typescript
 typings/
+*.js.map
 
 # IntelliJ Node.js plugin
 bin/
